@@ -18,17 +18,17 @@
 		</Connections>
 		<!--
 			StorageDir path variables
-			
+
 			${com.wowza.wms.AppHome} - Application home directory
 			${com.wowza.wms.ConfigHome} - Configuration home directory
 			${com.wowza.wms.context.VHost} - Virtual host name
 			${com.wowza.wms.context.VHostConfigHome} - Virtual host config directory
 			${com.wowza.wms.context.Application} - Application name
 			${com.wowza.wms.context.ApplicationInstance} - Application instance name
-			
+
 		-->
 		<Streams>
-			<StreamType>live</StreamType>
+			<StreamType>live-record</StreamType>
 			<StorageDir>${com.wowza.wms.context.VHostConfigHome}/content</StorageDir>
 			<KeyDir>${com.wowza.wms.context.VHostConfigHome}/keys</KeyDir>
 			<!-- LiveStreamPacketizers (separate with commas): cupertinostreamingpacketizer, mpegdashstreamingpacketizer, cupertinostreamingrepeater,  mpegdashstreamingrepeater -->
@@ -54,7 +54,7 @@
 			<!-- As an origin, also add dvrchunkstreaming to HTTPStreamers below -->
 
 			<!-- If this is a dvrstreamingrepeater, define Application/Repeater/OriginURL to point back to the origin -->
-			
+
 			<!-- To turn on DVR recording set Recorders to dvrrecorder.  This works with dvrstreamingpacketizer  -->
 			<Recorders></Recorders>
 
@@ -79,7 +79,7 @@
 		<TimedText>
 			<!-- VOD caption providers (separate with commas): vodcaptionprovidermp4_3gpp, vodcaptionproviderttml, vodcaptionproviderwebvtt,  vodcaptionprovidersrt, vodcaptionproviderscc -->
 			<VODTimedTextProviders>vodcaptionprovidermp4_3gpp</VODTimedTextProviders>
-			
+
 			<!-- Properties for TimedText -->
 			<Properties>
 			</Properties>
@@ -212,7 +212,7 @@
 		<StreamRecorder>
 			<Properties>
 			</Properties>
-		</StreamRecorder> 
+		</StreamRecorder>
 		<Modules>
 			<Module>
 				<Name>base</Name>
