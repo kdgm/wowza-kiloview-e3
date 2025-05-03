@@ -7,3 +7,8 @@ services:
       - "8086:8086" # Wowza admin api
       - "8087:8087" # Rest API
       - "8088:8088" # Wowza admin UI
+    volumes:
+      - ./conf/live:/usr/local/WowzaStreamingEngine/conf/live
+      - ./logs:/usr/local/WowzaStreamingEngine/logs
+      - ./content:/usr/local/WowzaStreamingEngine/content
+      - ./supervisor:/var/log/supervisor
