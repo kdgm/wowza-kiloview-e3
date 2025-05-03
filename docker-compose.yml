@@ -1,24 +1,9 @@
 services:
   wowza:
     image: wowzamedia/wowza-streaming-engine-linux:4.9.3
-    # privileged: true
-    # build: .
-    # environment:
-    #   - WSE_LIC=${WOWZA_LICENSE}
-    #   - TZ=Europe/Amsterdam
     entrypoint: /sbin/entrypoint.sh
     ports:
       - "1935:1935" # Wowza RTMP port
       - "8086:8086" # Wowza admin api
       - "8087:8087" # Rest API
       - "8088:8088" # Wowza admin UI
-    # volumes:
-    #   - ./releases:/tmp/releases
-    #   - ./lib-external:/tmp/lib-external
-    #   - ./conf:/usr/local/WowzaStreamingEngine/conf
-    #   - ./transcoder:/usr/local/WowzaStreamingEngine/transcoder
-    #   - ./applications:/usr/local/WowzaStreamingEngine/applications
-    #   - ./logs:/usr/local/WowzaStreamingEngine/logs
-    #   - ./supervisor:/var/log/supervisor
-    #   - /etc/localtime:/etc/localtime:ro
-    #   - ./always-record:/mnt/wowza/always-record/test
