@@ -18,9 +18,9 @@ The Kiloview E3 encoder is advertising itself as "GStreamer 1.22.3 FLV muxer". F
 
 The version of Wowza used in this report is 4.9.3 (Docker `image: wowzamedia/wowza-streaming-engine-linux:4.9.3`) but the same problem occurs with previous versions of Wowza Streaming Engine (at least version 4.7.7 also encounters this problem).
 
-#### Configuration: `live/Application.xml`
+#### Configuration: `conf/live/Application.xml`
 
-The default configuration of Wowza Streaming Engine is used (from the Docker image), with the following changes (see commits).
+The default configuration of Wowza Streaming Engine is used (from the Docker image), with the following changes (see commits) in [`conf/live/Application.xml`](conf/live/Application.xml).
 
 - Change `<Streams><StreamType>` to `live-record` so all incoming streams are recorded.
 - Add to `<Streams><Properties>` the following property:
@@ -79,11 +79,11 @@ The stream is not playable via VLC or `ffplay`. The recording `content/test.flv`
 
 ## Proof
 
-- `proof/WowzaStreamingEngine.log`
+- [`proof/WowzaStreamingEngine.log`](proof/WowzaStreamingEngine.log)
   - The Wowza log file copied from `supervisor/WowzaStreamingEngine.log`.
-- `proof/test.flv` (copied from `content/test.flv`)
+- [`proof/test.flv`](proof/test.flv) (copied from `content/test.flv`)
   - The (broken) recording. It appears to play fine using `ffplay` but the video freezes when played in VLC.
-- `proof/packetcapture-rtmpt.pcapng.gz`
+- [`proof/packetcapture-rtmpt.pcapng.gz`](proof/packetcapture-rtmpt.pcapng.gz)
   - The captured RTMP network traffic which can be loaded into Wireshark (preferably) or previewed in the terminal with `tshark -r proof/packetcapture-rtmpt.pcapng.gz`.
 
 ## Severity / Priority
